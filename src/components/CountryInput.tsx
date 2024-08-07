@@ -3,12 +3,12 @@ import { Button, Input } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchOutlined } from '@ant-design/icons';
 import { RootState } from '../store';
-import { setSelectedCountry } from '../store/SelectedCountryReducer';
+import { setInputCountry } from '../store/InputCountryReducer';
 import { InputWrap } from '../styles/Sidebar.style';
 
 const CountryInput: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
-  const country = useSelector((state: RootState) => state.selectedCountry.country);
+  const country = useSelector((state: RootState) => state.inputCountry.country);
   const dispatch = useDispatch();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,7 +16,7 @@ const CountryInput: React.FC = () => {
   };
 
   const onSearch = () => {
-    dispatch(setSelectedCountry(inputValue));
+    dispatch(setInputCountry(inputValue));
     console.log('Search:', country);
   };
 

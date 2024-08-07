@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const HeaderWrap = styled.div`
-    position: sticky;
+    position: relative;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,13 +12,14 @@ const HeaderWrap = styled.div`
     color: rgba(96, 98, 102, 1);
     background: rgba(255, 255, 255, 1);
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+    z-index: 1;
 
 ` 
 const MenuButton = styled.div`
     position: absolute; 
     left: 1vw; 
     top: 16px;
-    z-index: 1;
+    z-index: 2;
 `
 
 const HeaderTitle = styled.div`

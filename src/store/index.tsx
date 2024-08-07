@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import CollapseReducer from "./CollapseReducer";
+import SelectedCountryReducer from "./SelectedCountryReducer";
 
 export const store = configureStore({
     reducer: {
-        collapse: CollapseReducer
+        collapse: CollapseReducer,
+        selectedCountry: SelectedCountryReducer
     }
 }) 
 

@@ -17,7 +17,6 @@ const client = new ApolloClient({
   uri: 'https://countries.trevorblades.com',
 });
 
-// write a GraphQL query that asks for names and codes for all countries
 const LIST_COUNTRIES = gql`
   {
     continents{
@@ -29,8 +28,8 @@ const LIST_COUNTRIES = gql`
   }
 `;
 
-const CountrySelectMenu = () => {
-  const country = useSelector((state: RootState) => state.selectedCountry.country);
+const AllCountries = () => {
+  const country = useSelector((state: RootState) => state.selectedCountry.selectedCountry);
   const dispatch = useDispatch();
   const { data, loading, error } = useQuery(LIST_COUNTRIES, { client });
 
@@ -68,4 +67,4 @@ const CountrySelectMenu = () => {
   );
 };
 
-export default CountrySelectMenu;
+export default AllCountries;

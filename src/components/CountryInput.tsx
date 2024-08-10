@@ -25,6 +25,7 @@ const CountryInput: React.FC = () => {
       <Input
         placeholder="Filter by name"
         value={inputValue}
+        onPressEnter={onSearch}
         onChange={handleInputChange}
       />
       <Button 

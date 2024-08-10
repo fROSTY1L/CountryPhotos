@@ -9,7 +9,10 @@ body {
     font-family: 'Noto Sans', sans-serif;
     box-sizing:border-box;
 }
-
+.App {
+  width: 100%;
+  height: 100vh;
+}
 .unselectable {
     -webkit-touch-callout: none; 
     -webkit-user-select: none;   

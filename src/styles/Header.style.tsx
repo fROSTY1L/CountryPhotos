@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const HeaderWrap = styled.div`
     position: relative;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

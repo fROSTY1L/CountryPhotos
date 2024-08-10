@@ -1,18 +1,29 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState = {
-    country: ''
+interface CountriesState {
+  selectedCountry: string;
+  countries: string[];
 }
 
-const selectedCountrySlice = createSlice({
-    name: 'selectedCountry',
-    initialState,
-    reducers: {
-        setSelectedCountry: (state, action) => {
-            state.country = action.payload
-        },
-    },
-})
+const initialState: CountriesState = {
+  selectedCountry: 'Angola',
+  countries: [],
+};
 
-export const { setSelectedCountry } = selectedCountrySlice.actions;
-export default selectedCountrySlice.reducer
+const countriesSlice = createSlice({
+  name: 'countries',
+  initialState,
+  reducers: {
+    setSelectedCountry(state, action: PayloadAction<string>) {
+      state.selectedCountry = action.payload;
+    },
+    addCountry(state, action: PayloadAction<string>) {
+      if (!state.countries.includes(action.payload)) {
+        state.countries.push(action.payload);
+      }
+    },
+  },
+});
+
+export const { setSelectedCountry, addCountry } = countriesSlice.actions;
+export default countriesSlice.reducer;

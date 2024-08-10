@@ -6,12 +6,19 @@ const GlobalStyle = createGlobalStyle`
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans SC';, sans-serif;
     box-sizing:border-box;
+    
 }
 .App {
   width: 100%;
   height: 100vh;
+}
+.main_image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10%;
+  object-fit: cover;
 }
 .unselectable {
     -webkit-touch-callout: none; 

@@ -33,6 +33,13 @@ const PhotosHeader = () => {
     console.log("Updated Current Page (after dispatch):", page);
   };
   
+ 
+  let displayedCountries = countries.slice(-3);
+  
+  
+  if (countries.length > 3) {
+    displayedCountries = ["..."].concat(displayedCountries.slice(1));
+  }
 
   return (
     <PhotosHeaderWrap>
@@ -42,8 +49,11 @@ const PhotosHeader = () => {
           separator='>'
           style={{ marginTop: '-15px', paddingBottom: '10px', cursor: 'pointer', color: 'rgba(0, 0, 0, 0.45)' }}
         >
-          {countries.map((country: string, index: number) => (
-            <Breadcrumb.Item key={index} onClick={() => handleClick(country)}>
+          {displayedCountries.map((country: string, index: number) => (
+            <Breadcrumb.Item
+              key={index}
+              onClick={() => country !== "..." && handleClick(country)}
+            >
               {country}
             </Breadcrumb.Item>
           ))}

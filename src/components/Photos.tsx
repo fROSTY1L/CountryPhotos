@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { CardWrap, ImageWrap, PhotosGallery, PhotosWrap } from '../styles/Photos.style';
+import { CardDownloadButton, CardFooter, CardTitle, CardWrap, ImageWrap, PhotosGallery, PhotosWrap } from '../styles/Photos.style';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import PhotosHeader from './PhotosHeader';
 import { setNumberOfPages } from '../store/NumberOfPagesReducer';
+import { Button, Image } from 'antd';
+import { SaveOutlined } from '@ant-design/icons';
+import ModalDownload from './ModalDownload';
+import { setSelectedPhoto } from '../store/SelectedPhotoReducer';
 
 interface Photo {
     id: number,
@@ -21,6 +25,7 @@ const Photos = () => {
   const currentPage = useSelector((state: RootState) => state.page.page);
   const selectedCountry = useSelector((state: RootState) => state.selectedCountry.selectedCountry);
   const numberOfPages = useSelector((state: RootState) => state.page.numberOfPages)
+  const selectedPhoto = useSelector((state: RootState) => state.selectedPhoto.url)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -44,7 +49,7 @@ const Photos = () => {
           }
         });
         
-        // Обновляем состояние с фотографиями
+        
         setPhotos(firstResponse.photos);
         
       } catch (error) {
@@ -54,13 +59,27 @@ const Photos = () => {
     
     fetchPhotos();
   }, [currentPage, selectedCountry, dispatch]);
+
+  const handleClick = (id: string) => (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
+    dispatch(setSelectedPhoto(id));
+    console.log(selectedPhoto)
+  };
+  
   return ( 
     <PhotosGallery>
       <PhotosHeader/>
         <PhotosWrap>
           {photos.map((photo: Photo) => (
               <CardWrap>
-                  <ImageWrap key={photo.id} src={photo.src.original} alt={photo.photographer} />
+                  <ImageWrap key={photo.id} src={photo.src.medium} alt={photo.photographer}/>
+                  <CardFooter>
+                    <CardTitle>{photo.photographer}</CardTitle>
+                    <CardDownloadButton onClick={handleClick(String(photo.id))}>
+                      <ModalDownload/>
+                      </CardDownloadButton>
+                  </CardFooter>
+                  
               </CardWrap>
           ))}
         </PhotosWrap>

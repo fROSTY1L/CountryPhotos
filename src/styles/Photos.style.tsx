@@ -8,7 +8,7 @@ const ImageWrap = styled.img`
 `
 
 const CardWrap = styled.div`
-    height: 43vh;
+    height: 37vh;
     border-radius: 30%;
 `
 
@@ -22,7 +22,7 @@ const PhotosWrap = styled.div`
 `
 const PhotosHeaderWrap = styled.div`
     width: 100%;
-    hight: 10%;
+    height: 20%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,6 +42,7 @@ const PhotosPagination = styled.div`
 const PhotosGallery = styled.div`
     display: flex;
     width: 100%;
+    height: 90%;
     flex-direction: column;
     align-items: center;
 `

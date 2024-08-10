@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 interface Page {
-    page: number
+    page: number,
+    numberOfPages: number
 }
 const initialState: Page = {
-    page: 1
+    page: 1,
+    numberOfPages: 0
 }
 
 const pageSlice = createSlice({
@@ -14,6 +16,8 @@ const pageSlice = createSlice({
         setPage: (state, action) => {
             state.page = action.payload
         },
+        
+        
     },
 })
 

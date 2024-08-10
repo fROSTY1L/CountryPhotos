@@ -41,7 +41,7 @@ const SelectedCountries = () => {
   );
 
   const items: MenuItem[] = filteredCountries.map((country: Country, index: number = 0) => ({
-    key: index++,
+    key: country.name,
     label: country.name,
   }));
 

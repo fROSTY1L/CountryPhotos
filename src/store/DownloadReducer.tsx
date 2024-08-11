@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-interface Resolution {
-    resolution: 'origin' | 'medium' | 'large' | 'small'
-}
 const initialState = {
     resolution: ''
 }

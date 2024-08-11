@@ -40,6 +40,7 @@ const CardTitle = styled.div`
     font-weight: 500;
     line-height: 22px;
     text-align: left;
+    
 `;
 
 const CardDownloadButton = styled.div`
@@ -47,6 +48,7 @@ const CardDownloadButton = styled.div`
 `;
 
 const PhotosWrap = styled.div`
+    margin-top: 2vh;
     width: 90%;
     margin-left: 8.5vw;
     display: flex;
@@ -56,7 +58,7 @@ const PhotosWrap = styled.div`
 
 const PhotosHeaderWrap = styled.div`
     width: 100%;
-    height: 18%;
+    height: 16%;
     display: flex;
     justify-content: space-between;
     align-items: center;

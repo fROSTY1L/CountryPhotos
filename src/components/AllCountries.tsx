@@ -4,13 +4,7 @@ import { ApolloClient, InMemoryCache, gql, useQuery } from '@apollo/client';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { setSelectedCountry } from '../store/SelectedCountryReducer';
-interface Continent { 
-    name: string;
-    countries: Country[] 
-}
-interface Country {
-  name: string;
-}
+import { Continent, Country } from '../types/types';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),

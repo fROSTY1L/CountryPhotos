@@ -1,9 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { Page } from "../types/types";
 
-interface Page {
-    page: number,
-    numberOfPages: number
-}
 const initialState: Page = {
     page: 1,
     numberOfPages: 0

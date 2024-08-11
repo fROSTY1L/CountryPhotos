@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { PhotoUrl } from "../types/types";
 
-interface PhotoUrl {
-    url: string;
-}
+
 
 const initialState: PhotoUrl = {
     url: ''

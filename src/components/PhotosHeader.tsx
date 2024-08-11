@@ -28,9 +28,7 @@ const PhotosHeader = () => {
   };
 
   const handlePageChange = (page: number): void => {
-    console.log("Selected Page:", page);
     dispatch(setPage(page)); 
-    console.log("Updated Current Page (after dispatch):", page);
   };
   
  
@@ -44,7 +42,8 @@ const PhotosHeader = () => {
   return (
     <PhotosHeaderWrap>
       <PhotosTitle>
-        <h1>{selectedCountry}</h1>
+        { selectedCountry.length > 32 ? <h1 style={{fontSize: '1.5rem'}}>{selectedCountry}</h1> : <h1>{selectedCountry}</h1> }
+        
         <Breadcrumb
           separator='>'
           style={{ marginTop: '-15px', paddingBottom: '10px', cursor: 'pointer', color: 'rgba(0, 0, 0, 0.45)' }}

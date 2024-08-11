@@ -1,9 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CountriesState } from '../types/types';
 
-interface CountriesState {
-  selectedCountry: string;
-  countries: string[];
-}
 
 const initialState: CountriesState = {
   selectedCountry: 'Angola',

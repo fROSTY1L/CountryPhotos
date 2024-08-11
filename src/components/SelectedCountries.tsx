@@ -3,10 +3,7 @@ import { ApolloClient, InMemoryCache, gql, useQuery } from '@apollo/client';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { setSelectedCountry } from '../store/SelectedCountryReducer';
-
-interface Country {
-  name: string;
-}
+import { Country } from '../types/types';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -40,7 +37,7 @@ const SelectedCountries = () => {
     item.name.toLowerCase().startsWith(country.toLowerCase())
   );
 
-  const items: MenuItem[] = filteredCountries.map((country: Country, index: number = 0) => ({
+  const items: MenuItem[] = filteredCountries.map((country: Country) => ({
     key: country.name,
     label: country.name,
   }));

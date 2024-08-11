@@ -8,7 +8,6 @@ import { InputWrap } from '../styles/Sidebar.style';
 
 const CountryInput: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
-  const country = useSelector((state: RootState) => state.inputCountry.country);
   const dispatch = useDispatch();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,7 +16,6 @@ const CountryInput: React.FC = () => {
 
   const onSearch = () => {
     dispatch(setInputCountry(inputValue));
-    console.log('Search:', country);
   };
 
   return (

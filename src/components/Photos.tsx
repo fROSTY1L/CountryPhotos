@@ -5,27 +5,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import PhotosHeader from './PhotosHeader';
 import { setNumberOfPages } from '../store/NumberOfPagesReducer';
-import { Button, Image } from 'antd';
-import { SaveOutlined } from '@ant-design/icons';
 import ModalDownload from './ModalDownload';
 import { setSelectedPhoto } from '../store/SelectedPhotoReducer';
+import { Photo } from '../types/types';
 
-interface Photo {
-    id: number,
-    url: string,
-    photographer: string,
-    src: {
-        original: string,
-        medium: string
-    }
-}
 
 const Photos = () => {
   const [photos, setPhotos] = useState([]);
   const currentPage = useSelector((state: RootState) => state.page.page);
   const selectedCountry = useSelector((state: RootState) => state.selectedCountry.selectedCountry);
-  const numberOfPages = useSelector((state: RootState) => state.page.numberOfPages)
-  const selectedPhoto = useSelector((state: RootState) => state.selectedPhoto.url)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -63,7 +51,6 @@ const Photos = () => {
   const handleClick = (id: string) => (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     dispatch(setSelectedPhoto(id));
-    console.log(selectedPhoto)
   };
   
   return ( 

@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux'
 import { RootState } from '../store'
-import { Menu } from 'antd'
 import { SidebarWrap }  from '../styles/Sidebar.style'
 import AllCountries from './AllCountries'
 import CountryInput from './CountryInput'
